@@ -6,10 +6,6 @@ import Button from './button';
 
 const Todo = ({tasks}) => {  
 
-  const handleClick = (index) => {
-    tasks.filter(index);
-  }
-
   return (
     <div>
       <h1 className='todo-title'>My Todos</h1>
@@ -17,7 +13,10 @@ const Todo = ({tasks}) => {
         <ol>
           {tasks.map((task, index) => (
             <div className='todo'>
-              <li className='todo-list'>{task.plan} {task.dates}</li>
+              <li className='todo-list'>
+                <div className='todo-list-plan'>{task.plan}</div>
+                <div>{task.dates}</div>
+              </li>
               <Button 
                 imageName='todo-image'
                 name='trash'

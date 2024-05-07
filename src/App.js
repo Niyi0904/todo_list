@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import create from './data/btn.create.svg';
 import trash from './data/TrashSimple.svg';
+import Header from './components/header';
 import Todo from './components/todo';
 import Input from './components/input';
 import Button from './components/button';
@@ -28,35 +29,43 @@ const App = () => {
   }
 
   const handleAdd = () => {
-    setAdd([...add, newTask]);
 
-    console.log(add)
+    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+      setAdd([...add, newTask]);
+  
+      console.log(add)
+    }
   }
 
   return (
-    <div className='container'>
-      <div className='sub-container'>
-        <Input 
-          type='text'
-          onChange={handleChange}
-          name= 'input-text'
-        />
-        <Input 
-          type='date'
-          onChange={handleDate}
-          name='input-date'
-        />
-        <Button 
-          click={handleAdd}
-          image={create}
-          name='create'
-          imageName='todo-create'
-        />
-      </div>
-      <div>
-        <Todo 
-          tasks={add}
-        />
+    <div>
+      <Header/>
+      <div className='container'>
+        <div className='sub-container'>
+          <Input 
+            type='text'
+            onChange={handleChange}
+            name= 'input-text'
+          />
+          <Input 
+            type='date'
+            onChange={handleDate}
+            name='input-date'
+          />
+          <Button 
+            click={handleAdd}
+            image={create}
+            name='create'
+            imageName='todo-create'
+          />
+        </div>
+        <div>
+          <Todo 
+            tasks={add}
+            setTask={setAdd}
+            
+          />
+        </div>
       </div>
     </div>
   )
