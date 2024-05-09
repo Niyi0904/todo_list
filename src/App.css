@@ -2,10 +2,13 @@
   margin-left: 400px;
 }
 .container1 {
-  margin-left: 10px;
+  margin-left: 25px;
 }
 .sub-container {
   display: flex;
+}
+.sub-container2{
+  margin-left: 200px;
 }
 .header {
   color:#b38ae9 ;
@@ -82,3 +85,40 @@ input {
   padding-left: 20px;
 }
 
+.mobile {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+.mobile-container {
+  background-color: #dbcaf1; 
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0; 
+  margin-top: 200px;
+  height: 300px;
+  border-radius: 20px;
+}
+.mobile-sub-container {
+  margin-top: 20px;
+  margin-left: 20px
+}
+.mobile-input-text {
+  display: block;
+  margin-bottom: 20px;
+  width: 450px;
+  border-radius: 0;
+}
+.mobile-input-date {
+  display: block;
+  margin-bottom: 20px;
+  width: 450px;
+  border-radius: 0;
+}
+.mobile-todo-create {
+  margin-top: 20px;
+  margin-left: 200px;
+}

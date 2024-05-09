@@ -8,6 +8,7 @@ export const ContextProvider = ({children}) => {
   const [value, setValue] = useState('')
   const [date, setDate] = useState('');
   const [add, setAdd] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleChange = (e) => (
     setValue(e.target.value)
@@ -15,6 +16,12 @@ export const ContextProvider = ({children}) => {
   const handleDate = (e) => (
     setDate(e.target.value)
   )
+
+  const handleClick = () => {
+    setIsClicked(true);
+
+    console.log('isClicked is true')
+  }
 
   const newTask = {
     plan: value,
@@ -26,6 +33,10 @@ export const ContextProvider = ({children}) => {
     if(newTask.plan.trim() && newTask.dates.trim() !== '') {
       setAdd([...add, newTask]);
     }
+    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+      setIsClicked(false);
+    }
+
   }
 
   return (
@@ -41,7 +52,9 @@ export const ContextProvider = ({children}) => {
       setAdd,
       handleChange,
       handleDate, 
-      handleAdd
+      handleAdd,
+      isClicked, setIsClicked,
+      handleClick
     }}
   >
     {children}

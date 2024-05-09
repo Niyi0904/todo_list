@@ -7,10 +7,11 @@ import Header from './components/header';
 import Todo from './components/todo';
 import Input from './components/input';
 import Button from './components/button';
+import MobileCreateTodo from './components/mobile.createTodo';
 import { UseStateContext } from './context/contextProvider';
 
 const App = () => {
-  const {screenSize, setScreenSize, add, setAdd, handleChange, handleDate, handleAdd } = UseStateContext();
+  const {screenSize, setScreenSize, add, setAdd, handleChange, handleDate, handleAdd, isClicked, setIsClicked, handleClick } = UseStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -25,8 +26,9 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <div className={screenSize <= 1300 ? 'container1' : 'container'}>
-        <div className='sub-container'>
+      <div className={screenSize <= 600 || screenSize <= 1300 ? 'container1' : 'container'}>
+        {screenSize >= 600 ? 
+          <div className='sub-container'>
           <Input 
             type='text'
             onChange={handleChange}
@@ -43,15 +45,23 @@ const App = () => {
             name='create'
             imageName='todo-create'
           />
-        </div>
-        <div>
-          <Todo 
-            tasks={add}
-            setTask={setAdd}
-            
+        </div> : <div className='sub-container2'>
+          {
+            <Button 
+            click={handleClick}
+            image={create}
+            name='create'
+            imageName='todo-create'
           />
+          }
+        </div>
+        }
+        <div>
+          <Todo/>
         </div>
       </div>
+
+      {isClicked && <MobileCreateTodo />}
     </div>
   )
 } 

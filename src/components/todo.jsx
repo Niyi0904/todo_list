@@ -10,7 +10,7 @@ const Todo = () => {
 
    const handleDelete = (index) => {
     const update = add.filter(( _, i) => i !== index);
-    alert('you are about to delete');
+    alert('You are about to delete this Todo');
     setAdd(update);
    }
 
