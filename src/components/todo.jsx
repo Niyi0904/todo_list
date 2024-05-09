@@ -18,13 +18,12 @@ const Todo = () => {
     <div>
       <h1 className='todo-title'>My Todos</h1>
       <div>
-        <ol>
           {add.map((task, index) => (
             <div className='todo' key={index}>
-              <li className='todo-list'>
+              <div className='todo-list'>
                 <div className='todo-list-plan'>{task.plan}</div>
                 <div>{task.dates}</div>
-              </li>
+              </div>
               <Button 
                 imageName='todo-image'
                 name='trash'
@@ -33,7 +32,6 @@ const Todo = () => {
               />
             </div>
           ))}
-        </ol>
       </div>
     </div>
   )

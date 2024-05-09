@@ -50,7 +50,7 @@ const App = () => {
             <Button 
             click={handleClick}
             image={create}
-            name='create'
+            name='mobile-create'
             imageName='todo-create'
           />
           }
