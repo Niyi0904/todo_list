@@ -23,7 +23,7 @@
 }
 .header-h1 {
   margin-bottom: 1px;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 .todo {
   display: flex;
@@ -104,16 +104,18 @@ input {
 .mobile-input-text {
   display: block;
   margin-bottom: 20px;
-  width: 450px;
+  width: 300px;
   border-radius: 0;
 }
 .mobile-input-date {
   display: block;
   margin-bottom: 20px;
-  width: 450px;
+  width: 300px;
   border-radius: 0;
 }
 .mobile-todo-create {
-  margin-top: 20px;
-  margin-left: 200px;
+  display: block;
+  margin-top: 40px;
+  margin-left: 50%;
+  
 }
