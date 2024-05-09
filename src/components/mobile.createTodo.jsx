@@ -7,7 +7,7 @@ import { UseStateContext } from '../context/contextProvider';
 const MobileCreateTodo = () => {
   const {handleAdd, handleChange, handleDate} = UseStateContext();
   return (
-    <div className='mobile'>
+    <div>
       <div className='mobile-container'>
         <div className='mobile-sub-container'>
           <h1 className='todo-title'>Add Todo</h1>

@@ -85,12 +85,6 @@ input {
   padding-left: 20px;
 }
 
-.mobile {
-  background-color: red;
-  height: 100%;
-  width: 100%;
-  z-index: 1000;
-}
 .mobile-container {
   background-color: #dbcaf1; 
   width: 100%;
