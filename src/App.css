@@ -1,5 +1,6 @@
 *{
   margin-top: 0;
+  box-sizing: border-box;
 }
 .container {
   margin-left: 400px;
@@ -61,7 +62,7 @@
   border-radius: 10px;
 }
 .profile-image {
-  margin-right: 50px;
+  margin-right: 10px;
 }
 input {
   height: 40px;
