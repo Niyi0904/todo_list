@@ -122,3 +122,172 @@ input {
   margin-left: 40%;
   
 }
+
+
+/* Sign In */
+.sign-in {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 45px 0;
+}
+.header-h2 {
+  color:#b38ae9 ;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.email {
+    background-color: #a395b463;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+.password {
+    background-color: #a395b463;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.email-label {
+    color: #a395b463;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 45px;
+    transition: 300ms ease all;
+}
+.password-label {
+  color: #a395b463;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 135px;
+    transition: 300ms ease all;
+}
+.buttons {
+  margin-top: 20px;
+}
+.sign-in-btn {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: rgb(158, 120, 207);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'sans-serif';
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 1px;
+  margin-right: 30px;
+
+}
+.sign-in-with-goggle-btn {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: #4285f4;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'sans-serif';
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+/* sign Up */
+.sign-up {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header-h3 {
+  color:#b38ae9 ;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.displayName {
+  margin-top: 50px;
+  width: 100%;
+}
+.displayName-label {
+  color: #a395b463;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 65px;
+    transition: 300ms ease all;
+}
+.sign-up-email {
+  margin-top: 50px;
+  width: 100%;
+}
+.sign-up-email-label {
+  color: #a395b463;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 155px;
+  transition: 300ms ease all;
+}
+.sign-up-password {
+  margin-top: 50px;
+  width: 100%;
+}
+.sign-up-password-label {
+  color: #a395b463;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 245px;
+  transition: 300ms ease all;
+}
+.sign-up-confirm {
+  margin-top: 50px;
+  width: 100%;
+}
+.sign-up-confirm-label {
+  color: #a395b463;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 335px;
+    transition: 300ms ease all;
+}

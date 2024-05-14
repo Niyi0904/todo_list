@@ -10,6 +10,8 @@ export const ContextProvider = ({children}) => {
   const [add, setAdd] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState({ currentUser: null })
+
   const handleChange = (e) => (
     setValue(e.target.value)
   )
@@ -54,7 +56,8 @@ export const ContextProvider = ({children}) => {
       handleDate, 
       handleAdd,
       isClicked, setIsClicked,
-      handleClick
+      handleClick,
+      currentUser, setCurrentUser
     }}
   >
     {children}
