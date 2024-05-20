@@ -1,8 +1,10 @@
 import { createContext, useContext, useState } from "react";
+import { firestore, auth } from "../firebase/firebase.utils";
+import { addUserToFirestore } from "../firebase/firebase.utils";
 
 const StateContext = createContext();
 
-export const ContextProvider = ({children}) => {
+export const ContextProvider =({children}) => {
 
   const [screenSize, setScreenSize] = useState(undefined);
   const [value, setValue] = useState('')
@@ -32,13 +34,18 @@ export const ContextProvider = ({children}) => {
 
   const handleAdd = () => {
 
-    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
-      setAdd([...add, newTask]);
-    }
-    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
-      setIsClicked(false);
-    }
+    // if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+    //   setAdd([...add, newTask]);
+    // }
+    // if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+    //   setIsClicked(false);
+    // }
 
+    const stateChange = auth.onAuthStateChanged(async userAuth => {
+      const uid = userAuth.uid
+
+      addUserToFirestore(uid, newTask)
+    });
   }
 
   return (

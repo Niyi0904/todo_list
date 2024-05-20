@@ -73,6 +73,10 @@ const SignIn = () => {
               sign Up
             </button>
           </Link>
+          {/* <button
+            className='sign-in-with-goggle-btn'
+              onClick={() => auth.signOut()}
+            > Sign out</button> */}
         </div>
       </div>
     )

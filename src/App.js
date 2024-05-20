@@ -11,17 +11,24 @@ import { Route, Routes, redirect, Navigate } from 'react-router-dom';
 import SignUp from './pages/sign-up';
 
 const App = () => {
-  const { currentUser, setCurrentUser} = UseStateContext()
+  const {setCurrentUser} = UseStateContext();
 
   useEffect(() => {
     const unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log(currentUser)
-      setCurrentUser(userAuth);
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            currentUser: {
+              id: snapShot.id
+              // ...snapShot.data()
+            }
+          });
+        });
+      } 
       
-      createUserProfileDocument(userAuth);
-
-      console.log(currentUser);
+        setCurrentUser(userAuth);
     })
 
     return unsuscribeFromAuth;

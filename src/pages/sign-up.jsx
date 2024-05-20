@@ -10,7 +10,7 @@ import { signInWithGoogle, auth } from '../firebase/firebase.utils';
 import Input from '../components/input';
 
 const SignUp = () => {
-  const { currentUser } = UseStateContext();
+  // const { currentUser } = UseStateContext();
 
   const [state, setState] = useState({
     displayName: '',

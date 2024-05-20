@@ -1,6 +1,7 @@
 import Firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import { FieldValue, arrayUnion } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQnfzTDLkqrOCjSZBNbzTfaXw6rCQbvUE",
@@ -42,25 +43,42 @@ const firebaseConfig = {
 
 // }
 
+
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
+
   const userRef = firestore.doc(`users/${userAuth.uid}`)
+  
+  const userRefCollectionPosts = userRef.collection('Posts');
 
   const snapShot = await userRef.get();
 
   console.log(snapShot);
 
+
+
   if (!snapShot.exists) {
     const { displayName, email} = userAuth
     const createdAt = new Date();
+    const posts = [
+      {
+        task: 'go to the gym ',
+        date: new Date()
+      }
+    ]
 
     try {
       await userRef.set({
         displayName,
         email,
         createdAt,
+        posts,
         ...additionalData
+      })
+      await userRefCollectionPosts.add({
+        posts
       })
     } catch (error) {
       console.log('error creating user', error.message);
@@ -68,6 +86,32 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef
+}
+
+export const addUserToFirestore = async (id, newtask) => {
+  const userRef = firestore.doc(`users/${id}`);
+  const userRefCollectionPosts = userRef.collection('Posts').doc('my tasks')
+  const task = newtask.plan
+  const date = newtask.dates
+
+  await userRefCollectionPosts.update({
+    newTasks:arrayUnion({
+      task,
+      date
+    })
+  })
+
+
+  // const theTasks = await userRefCollectionPosts.get()
+
+  // const data = theTasks.d
+      // const userRef = firestore.doc(`users/${id}`)
+  
+      // // const userRefCollectionPosts = userRef.collection('Posts');
+
+      // const snapShot = await userRef.get();
+
+      // console.log(snapShot.exists);
 }
 
 Firebase.initializeApp(firebaseConfig);
