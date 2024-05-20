@@ -6,7 +6,7 @@ import Button from '../components/button';
 
 import { UseStateContext } from '../context/contextProvider';
 
-import { signInWithGoogle, auth } from '../firebase/firebase.utils';
+import { signInWithGoogle, auth, createUserProfileDocument } from '../firebase/firebase.utils';
 import Input from '../components/input';
 
 const SignUp = () => {
@@ -19,10 +19,27 @@ const SignUp = () => {
     confirmPassword: ''
   })
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
-    setState({email: '', password: '', displayName: '', confirmPassword: ''});
+    const { displayName, email, password, confirmPassword } = state
+
+    if (password !== confirmPassword) {
+      alert("passwords don't match");
+      return;
+    }
+    
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password)
+      
+      await createUserProfileDocument(user, {displayName})
+      
+      setState({email: '', password: '', displayName: '', confirmPassword: ''});
+      
+    } catch(error) {
+      console.log(error);
+    }
+
   }
 
   const handleEmail = (e) => (

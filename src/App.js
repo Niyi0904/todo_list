@@ -13,26 +13,36 @@ import SignUp from './pages/sign-up';
 const App = () => {
   const {setCurrentUser} = UseStateContext();
 
-  useEffect(() => {
-    const unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+//   useEffect(() => {
+//     const unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+//       if (userAuth) {
+//         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            currentUser: {
-              id: snapShot.id
-              // ...snapShot.data()
-            }
-          });
-        });
-      } 
+//         userRef.onSnapshot(snapShot => {
+//           setCurrentUser({
+// <<<<<<< HEAD
+//             currentUser: {
+//               id: snapShot.id
+
+//             }
+//           });
+//         });
+//       } 
       
-        setCurrentUser(userAuth);
-    })
+//         setCurrentUser(userAuth);
+// =======
+//             id: snapShot.id,
+//             ...snapShot.data()
+//           })
+//         })
+//       } else {
+//         setCurrentUser(userAuth);
+//       }
+// >>>>>>> 03f58431ccbc15d8d4ed72b233d840484afbbf84
+//     })
 
-    return unsuscribeFromAuth;
-  },[]);
+//     return unsuscribeFromAuth;
+//   },[]);
 
   return (
     <div>
