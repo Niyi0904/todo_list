@@ -1,7 +1,9 @@
 import Firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
-import { FieldValue, arrayUnion } from 'firebase/firestore';
+import { FieldValue, SnapshotMetadata, arrayUnion } from 'firebase/firestore';
+import { setAnalyticsCollectionEnabled } from 'firebase/analytics';
+import { json } from 'react-router';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQnfzTDLkqrOCjSZBNbzTfaXw6rCQbvUE",
@@ -95,8 +97,7 @@ export const addUserToFirestore = async (id, newtask) => {
       task,
       date
     })
-  })
-
+    })
 
   // const theTasks = await userRefCollectionPosts.get()
 
@@ -108,6 +109,8 @@ export const addUserToFirestore = async (id, newtask) => {
       // const snapShot = await userRef.get();
 
       // console.log(snapShot.exists);
+
+  return userRefCollectionPosts
 }
 
 Firebase.initializeApp(firebaseConfig);

@@ -42,9 +42,22 @@ export const ContextProvider =({children}) => {
     // }
 
     const stateChange = auth.onAuthStateChanged(async userAuth => {
-      const uid = userAuth.uid
+      // const uid = userAuth.uid
 
-      addUserToFirestore(uid, newTask)
+      // addUserToFirestore(uid, newTask)
+
+      if (userAuth) {
+        const uid = userAuth.uid
+        const update = await addUserToFirestore(uid, newTask)
+
+        const tas = update.get()
+
+        const result = (await tas).data()
+
+        setAdd(result.newTasks)
+
+        console.log(add)
+      }
     });
   }
 

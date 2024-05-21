@@ -21,8 +21,8 @@ const Todo = () => {
           {add.map((task, index) => (
             <div className='todo' key={index}>
               <div className='todo-list'>
-                <div className='todo-list-plan'>{task.plan}</div>
-                <div>{task.dates}</div>
+                <div className='todo-list-plan'>{task.task}</div>
+                <div>{task.date}</div>
               </div>
               <Button 
                 imageName='todo-image'
