@@ -48,47 +48,55 @@ const firebaseConfig = {
 
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-  if (!userAuth) return;
+  if (!userAuth) {
+    return
+  } else {
 
-
-  const userRef = firestore.doc(`users/${userAuth.uid}`)
+    const userRef = firestore.doc(`users/${userAuth.uid}`)
+    
+    const userRefCollectionPosts =await userRef.collection('Posts');
   
-  const userRefCollectionPosts = userRef.collection('Posts');
+    const snapShot = await userRef.get();
 
-  const snapShot = await userRef.get();
-
-  if (!snapShot.exists) {
-    const { displayName, email} = userAuth
-    const createdAt = new Date();
-    const posts = [
-      {
-        task: 'go to the gym ',
-        date: new Date()
+    console.log(snapShot.exists)
+  
+    if (!snapShot.exists) {
+      const { displayName, email} = userAuth
+      const createdAt = new Date();
+      const posts = [
+        {
+          task: 'go to the gym ',
+          date: new Date()
+        }
+      ]
+  
+      try {
+        await userRef.set({
+          displayName,
+          email,
+          createdAt,
+          posts,
+          ...additionalData
+        })
+        userRefCollectionPosts.doc('my tasks');
+        console.log('created')
+      } catch (error) {
+        console.log('error creating user', error.message);
       }
-    ]
-
-    try {
-      await userRef.set({
-        displayName,
-        email,
-        createdAt,
-        posts,
-        ...additionalData
-      })
-      await userRefCollectionPosts.add({
-        posts
-      })
-    } catch (error) {
-      console.log('error creating user', error.message);
     }
+  
+    return userRef
   }
-
-  return userRef
 }
 
 export const addUserToFirestore = async (id, newtask) => {
   const userRef = firestore.doc(`users/${id}`);
   const userRefCollectionPosts = userRef.collection('Posts').doc('my tasks')
+  const snapshot = await userRefCollectionPosts.get()
+
+  if (!snapshot.exists) {
+    userRefCollectionPosts.set({})
+  }
   const task = newtask.plan
   const date = newtask.dates
 

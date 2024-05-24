@@ -9,10 +9,20 @@ export const ContextProvider =({children}) => {
   const [screenSize, setScreenSize] = useState(undefined);
   const [value, setValue] = useState('')
   const [date, setDate] = useState('');
+
+  // auth.onAuthStateChanged(async userAuth =>{
+  //   const uid = userAuth.uid
+  //   const userRef = firestore.doc(`users/${uid}`)
+  //   const snapshot = await userRef.get()
+  //   const result = snapshot.data()
+
+
+  // })
   const [add, setAdd] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({ currentUser: null })
+  const [userName, setUserName] = useState();
 
   const handleChange = (e) => (
     setValue(e.target.value)
@@ -77,7 +87,8 @@ export const ContextProvider =({children}) => {
       handleAdd,
       isClicked, setIsClicked,
       handleClick,
-      currentUser, setCurrentUser
+      currentUser, setCurrentUser,
+      userName, setUserName
     }}
   >
     {children}
