@@ -11,7 +11,7 @@ import { UseStateContext } from "../context/contextProvider";
 import { Route, Routes, redirect, Navigate } from 'react-router-dom'; 
 
 const HomePage = () => {
-  const {screenSize, setScreenSize, add, setAdd, handleChange, handleDate, handleAdd, isClicked, setIsClicked, handleClick } = UseStateContext();
+  const {screenSize, setScreenSize, add, setAdd, handleChange, handleDate, handleAdd, isClicked, setIsClicked, handleClick, currentUser } = UseStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);

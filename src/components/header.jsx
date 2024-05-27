@@ -9,7 +9,7 @@ const Header = () => {
   return(
   <div className='header'>
     <Link to='/'>
-      <h1 className='header-h1'>My Todo List</h1>
+      <h2 className='header-h1'>My Todo List</h2>
     </Link>
     <Link to={currentUser ? '/userprofile' : '/signin'}>
       <img

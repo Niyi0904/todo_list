@@ -171,7 +171,7 @@ input {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 45px 0;
+
 }
 .header-h2 {
   color:#b38ae9 ;
@@ -185,47 +185,25 @@ input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 60%;
+    width: 70%;
     border: none;
     border-radius: 10px;
-    margin: 25px 0;
+    margin-bottom: 25px
 }
 .password {
     background-color: #a395b463;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 60%;
+    width: 70%;
     border: none;
     border-radius: 10px;
-    margin-top: 50px;
-}
-.email-label {
-    color: #a395b463;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 45px;
-    transition: 300ms ease all;
-}
-.password-label {
-  color: #a395b463;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 135px;
-    transition: 300ms ease all;
 }
 .buttons {
   margin-top: 20px;
 }
 .sign-in-btn {
-  min-width: 165px;
-  width: auto;
+  width: 250px;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
@@ -283,58 +261,17 @@ input {
   justify-content: space-between;
 }
 .displayName {
-  margin-top: 50px;
   width: 60%;
-}
-.displayName-label {
-  color: #a395b463;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 65px;
-    transition: 300ms ease all;
 }
 .sign-up-email {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 60%;
-}
-.sign-up-email-label {
-  color: #a395b463;
-  font-size: 24px;
-  font-weight: bold;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 155px;
-  transition: 300ms ease all;
 }
 .sign-up-password {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 60%;
-}
-.sign-up-password-label {
-  color: #a395b463;
-  font-size: 24px;
-  font-weight: bold;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 245px;
-  transition: 300ms ease all;
 }
 .sign-up-confirm {
-  margin-top: 50px;
+  margin-top: 30px;
   width: 60%;
-}
-.sign-up-confirm-label {
-  color: #a395b463;
-    font-size: 24px;
-    font-weight: bold;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 335px;
-    transition: 300ms ease all;
 }

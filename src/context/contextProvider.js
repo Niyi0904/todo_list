@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import { firestore, auth } from "../firebase/firebase.utils";
 import { addUserToFirestore } from "../firebase/firebase.utils";
+import { Navigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const StateContext = createContext();
 
@@ -70,7 +72,9 @@ export const ContextProvider =({children}) => {
         setAdd(result.newTasks)
 
         console.log(add)
-      }
+      } else{
+        alert('You have to login First')
+      } 
     });
   }
 

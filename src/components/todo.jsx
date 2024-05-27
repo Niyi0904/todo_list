@@ -6,7 +6,7 @@ import Button from './button';
 import { UseStateContext } from '../context/contextProvider';
 
 const Todo = () => {  
-  const { add, setAdd } = UseStateContext();
+  const { add, setAdd, currentUser } = UseStateContext();
 
    const handleDelete = (index) => {
     const update = add.filter(( _, i) => i !== index);
@@ -18,7 +18,7 @@ const Todo = () => {
     <div>
       <h1 className='todo-title'>My Todos</h1>
       <div>
-          {add.map((task, index) => (
+          {currentUser && add.map((task, index) => (
             <div className='todo' key={index}>
               <div className='todo-list'>
                 <div className='todo-list-plan'>{task.task}</div>

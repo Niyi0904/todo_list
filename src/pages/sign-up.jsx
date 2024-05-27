@@ -58,24 +58,24 @@ const SignUp = () => {
 
     return(
       <div className='sign-up'>
-        <h1 className='header-h3'>Sign up with your and password</h1>
+        <h1 className='header-h3'>Sign up</h1>
 
         <form onSubmit={handleSubmit}>
           <Input
             name="displayName" 
             type="text" 
             onChange={handleDisplayName}
-            value={state.displayName} 
+            value={state.displayName}
+            placeholder='Display Name'
           />
-          <label className='displayName-label'>Display Name</label>
 
           <Input
             name="sign-up-email" 
             type="email" 
             onChange={handleEmail}
             value={state.email} 
+            placeholder='Email'
           />
-          <label className='sign-up-email-label'>Email</label>
 
           <Input
             name="sign-up-password" 
@@ -83,22 +83,21 @@ const SignUp = () => {
             onChange={handlePassword}
             value={state.password}  
             required 
+            placeholder='Password'
           />
-          <label className='sign-up-password-label'>Password</label>
 
           <Input
             name="sign-up-confirm" 
             type="password" 
             onChange={handleConfirmPassword}
             value={state.confirmPassword} 
+            placeholder='Confirm Password'
           />
-          <label className='sign-up-confirm-label'>Confirm Password</label>
 
           <div className='buttons'>
             <button
-              type='password'
+              type='submit'
               className='sign-in-btn'
-              onClick={handleSubmit}
             > Sign up </button>
           </div>
         </form>

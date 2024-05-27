@@ -6,7 +6,7 @@ import Button from '../components/button';
 
 import { UseStateContext } from '../context/contextProvider';
 
-import { signInWithGoogle, auth } from '../firebase/firebase.utils';
+import { signInWithGoogle, auth, createUserProfileDocument } from '../firebase/firebase.utils';
 import Input from '../components/input';
 
 const SignIn = () => {
@@ -17,8 +17,18 @@ const SignIn = () => {
     password: '',
   })
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
+
+    const {email, password} = state
+
+    try{
+      const { user } = await auth.signInWithEmailAndPassword(email, password);
+
+      await createUserProfileDocument(user)
+    } catch(error) {
+      alert("Email or Password don't match")
+    }
 
     setState({email: '', password: ''});
   }
@@ -32,7 +42,7 @@ const SignIn = () => {
 
     return(
       <div className='sign-in'>
-        <h1 className='header-h2'>Sign in with your and password</h1>
+        <h2 className='header-h2'>Sign in with your email and password</h2>
 
         <form onSubmit={handleSubmit}>
           <Input
@@ -40,8 +50,8 @@ const SignIn = () => {
             type="email" 
             onChange={handleEmail}
             value={state.email} 
+            placeholder= 'Email'
           />
-          <label className='email-label'>Email</label>
 
           <Input
             name="password" 
@@ -49,25 +59,26 @@ const SignIn = () => {
             onChange={handlePassword}
             value={state.password}  
             required 
+            placeholder= 'Password'
           />
-          <label className='password-label'>Password</label>
 
           <div className='buttons'>
             <button
               type='submit'
               className='sign-in-btn'
-              onClick={handleSubmit}
             > Sign in </button>
-
-            <button
-            className='sign-in-with-goggle-btn'
-              onClick={signInWithGoogle}
-            > Sign in with Google </button>
           </div>
         </form>
 
         <div>
-          <h2 className='header-h2'>Dont have an account ?</h2>
+        <button
+            className='sign-in-with-goggle-btn'
+              onClick={signInWithGoogle}
+            > Sign in with Google </button>
+        </div>
+        
+        <div>
+          <h2 className='header-h2'>Don't have an account ?</h2>
           <Link to='/signup'>
             <button className='sign-in-btn'>
               sign Up
