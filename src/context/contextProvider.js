@@ -22,7 +22,10 @@ export const ContextProvider =({children}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({ currentUser: null })
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState({
+    Name: '',
+    email: ''
+  });
 
   const handleChange = (e) => (
     setValue(e.target.value)

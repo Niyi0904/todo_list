@@ -2,10 +2,10 @@
   margin-top: 0;
   box-sizing: border-box;
 }
-/* .yyy{
-  display: flex;
+.yyy{
+  display: grid;
   flex-direction: column;
-} */
+}
 .container {
   margin-left: 400px;
 }
@@ -164,6 +164,9 @@ input {
 
 /* Sign In */
 .sign-in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
   width: 450px;
   display: flex;
   flex-direction: column;
@@ -182,7 +185,7 @@ input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 100%;
+    width: 60%;
     border: none;
     border-radius: 10px;
     margin: 25px 0;
@@ -192,7 +195,7 @@ input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 100%;
+    width: 60%;
     border: none;
     border-radius: 10px;
     margin-top: 50px;
@@ -241,7 +244,10 @@ input {
 
 }
 .sign-in-with-goggle-btn {
+  display: block;
   min-width: 165px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
@@ -261,6 +267,9 @@ input {
 
 /* sign Up */
 .sign-up {
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
   width: 450px;
   display: flex;
   flex-direction: column;
@@ -275,7 +284,7 @@ input {
 }
 .displayName {
   margin-top: 50px;
-  width: 100%;
+  width: 60%;
 }
 .displayName-label {
   color: #a395b463;
@@ -289,7 +298,7 @@ input {
 }
 .sign-up-email {
   margin-top: 50px;
-  width: 100%;
+  width: 60%;
 }
 .sign-up-email-label {
   color: #a395b463;
@@ -303,7 +312,7 @@ input {
 }
 .sign-up-password {
   margin-top: 50px;
-  width: 100%;
+  width: 60%;
 }
 .sign-up-password-label {
   color: #a395b463;
@@ -317,7 +326,7 @@ input {
 }
 .sign-up-confirm {
   margin-top: 50px;
-  width: 100%;
+  width: 60%;
 }
 .sign-up-confirm-label {
   color: #a395b463;

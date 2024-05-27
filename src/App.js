@@ -12,7 +12,7 @@ import SignUp from './pages/sign-up';
 import UserProfile from './pages/userprofile';
 
 const App = () => {
-  const {setCurrentUser, currentUser, setAdd, add} = UseStateContext();
+  const {setCurrentUser, currentUser, setAdd, add, userName, setUserName} = UseStateContext();
 
   useEffect(() => {
     const unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -33,7 +33,9 @@ const App = () => {
               ...snapShot.data()
             } 
           });
-        });
+          setUserName({...userName, Name:snapShot.data().displayName, email:snapShot.data().email}) 
+          console.log(userName)
+        }); 
       } else {
         setCurrentUser(userAuth);
       }

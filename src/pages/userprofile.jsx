@@ -8,19 +8,6 @@ import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
   const {userName, setUserName} = UseStateContext();
-  useEffect(() => {
-    auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-  
-        userRef.onSnapshot(async snapShot => {
-          const userName = snapShot.data()
-          setUserName(userName)
-        })
-      } 
-    })
-  })
-
   return(
     <div className='user-profile'>
       <img
@@ -29,8 +16,8 @@ const UserProfile = () => {
       />
       <div className='user-profile-info'>
         <div className='user-profile-info-de'>
-          <h3>Name : <span>{userName.displayName }</span></h3>
-          <h3 className='user-email'>Email : <span>{userName.email }</span></h3>
+          <h3>Name : <span>{userName.Name}</span></h3>
+          <h3 className='user-email'>Email : <span>{userName.email}</span></h3>
           <Link to='/'>
             <button
             className='sign-in-btn'
