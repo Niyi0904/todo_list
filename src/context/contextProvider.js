@@ -48,34 +48,32 @@ export const ContextProvider =({children}) => {
   }
 
   const handleAdd = () => {
+    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+      setIsClicked(false);
+    }
 
-    // if(newTask.plan.trim() && newTask.dates.trim() !== '') {
-    //   setAdd([...add, newTask]);
-    // }
-    // if(newTask.plan.trim() && newTask.dates.trim() !== '') {
-    //   setIsClicked(false);
-    // }
-
-    const stateChange = auth.onAuthStateChanged(async userAuth => {
-      // const uid = userAuth.uid
-
-      // addUserToFirestore(uid, newTask)
-
-      if (userAuth) {
-        const uid = userAuth.uid
-        const update = await addUserToFirestore(uid, newTask)
-
-        const tas = update.get()
-
-        const result = (await tas).data()
-
-        setAdd(result.newTasks)
-
-        console.log(add)
-      } else{
-        alert('You have to login First')
-      } 
-    });
+    if(newTask.plan.trim() && newTask.dates.trim() !== '') {
+      const stateChange = auth.onAuthStateChanged(async userAuth => {
+        // const uid = userAuth.uid
+  
+        // addUserToFirestore(uid, newTask)
+  
+        if (userAuth) {
+          const uid = userAuth.uid
+          const update = await addUserToFirestore(uid, newTask)
+  
+          const tas = update.get()
+  
+          const result = (await tas).data()
+  
+          setAdd(result.newTasks)
+  
+          console.log(add)
+        } else{
+          alert('You have to login First')
+        } 
+      });
+    }
   }
 
   return (
